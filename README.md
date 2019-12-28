@@ -10,4 +10,6 @@ time, block height, block proposer ID, number of validators that missed the bloc
 
 If your validator missed the block, it appends "(including your validator)." If the number of validators that missed is below your threshold (alertIfLessThan) it will send an alert and further append "X validators missed, below your threshold of Y"
 
+Upcoming: Above a certain threshold, show how many blocks from each proposer you have missed.
+
 This is my first piece of Python, all feedback is welcome.
