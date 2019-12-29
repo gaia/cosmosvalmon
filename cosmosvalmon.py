@@ -102,7 +102,7 @@ try:
                 yourvalmissed = ", (including your validator)."
 
                 if valmissedcount < alertIfLessThan:
-                        alert = " Also sending an alert: " + str(valmissedcount) + " validators missed, below your threshold of " + str(alertIfLessThan)
+                        alert = " Also sending an alert: " + str(valmissedcount) + " validators missed - below your threshold of " + str(alertIfLessThan)
 
                 log = (now.strftime("%Y-%m-%d-%H:%M:%S") + ', ' + str(previousblock) + ', ' + proposer_address + ', ' + str(valmissedcount) + yourvalmissed)
                 # write to log file
