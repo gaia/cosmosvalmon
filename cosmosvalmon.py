@@ -99,12 +99,12 @@ try:
                     valset = valset + str(i) + ","
 
             if missed == 1:
-                yourvalmissed = " (including your validator)."
+                yourvalmissed = ", (including your validator)."
 
                 if valmissedcount < alertIfLessThan:
                         alert = " Also sending an alert: " + str(valmissedcount) + " validators missed, below your threshold of " + str(alertIfLessThan)
 
-                log = (now.strftime("%Y-%m-%d-%H:%M:%S") + ': ' + str(previousblock) + ', ' + proposer_address + ', ' + str(valmissedcount) + yourvalmissed)
+                log = (now.strftime("%Y-%m-%d-%H:%M:%S") + ', ' + str(previousblock) + ', ' + proposer_address + ', ' + str(valmissedcount) + yourvalmissed)
                 # write to log file
                 with open(logfile, 'a+') as f:
                     f.write(log + alert + '\n')
