@@ -10,6 +10,8 @@ time, block height, block proposer ID, number of validators that missed the bloc
 
 If your validator missed the block, it appends "(including your validator)." If the number of validators that missed is below your threshold (alertIfLessThan) it will send an alert and further append "X validators missed, below your threshold of Y".
 
-To sort from which proposer your validator misses the most blocks, use `cat /path/to/log/txt | cut -f 3 -d ',' | sort| uniq -c |sort -nr` on the log (disk log, not journalctl) output.
+To sort from which proposer your validator misses the most blocks, use `cat /path/to/log/txt | cut -f 3 -d ',' | sort| uniq -c |sort -nr` on the log (disk log, not journalctl) output. Sample:
+
+![Sample Output](https://i.imgur.com/jk64zNk.png)
 
 This is my first piece of Python, all feedback is welcome.
