@@ -15,3 +15,5 @@ To sort from which proposer your validator misses the most blocks, use `cat /pat
 ![Sample Output](https://i.imgur.com/jk64zNk.png)
 
 This is my first piece of Python, all feedback is welcome.
+
+Please consider delegating to our [Cosmos Validator](https://freshatoms.com/)
