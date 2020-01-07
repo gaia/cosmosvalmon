@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import gc
 import json
 import pyjq
 import datetime
@@ -113,6 +114,8 @@ try:
 
             if alert != "":
                 client.send_message(log + alert, title="Cosmos Validator Missed Block")
+            
+            gc.collect()
 
 except KeyboardInterrupt:
     print('............Exiting!')
