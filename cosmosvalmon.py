@@ -20,6 +20,7 @@ from dictor import dictor
 
 # Define these to your needs
 # get the proper string for your validator from stargazer.certus.one/validators
+# or from your priv_validator_key.json file
 yourval = "<your-validator-id>"
 # To test this enter below a validator that has been missing blocks frequently
 # and uncomment the line
