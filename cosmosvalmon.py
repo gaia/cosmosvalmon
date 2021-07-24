@@ -8,6 +8,7 @@ import datetime
 # Consider replacing it by https://github.com/dschep/ntfy
 # To get alerts via other channels
 from pushover import init, Client
+# requires `pip3 install python-pushover`
 # urllib.request module uses HTTP/1.1 and includes Connection:close header in its HTTP requests
 import urllib.request
 # this makes it easier to avoid errors when the requested json element is not present
