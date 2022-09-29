@@ -4,11 +4,6 @@ import gc
 import json
 import pyjq
 import datetime
-# This version uses Pushover for notifications.
-# Consider replacing it by https://github.com/dschep/ntfy
-# To get alerts via other channels
-from pushover import init, Client
-# requires `pip3 install python-pushover`
 # urllib.request module uses HTTP/1.1 and includes Connection:close header in its HTTP requests
 import urllib.request
 # this makes it easier to avoid errors when the requested json element is not present
@@ -31,8 +26,7 @@ yourval = "<your-validator-id>"
 # before you'd want to be alerted. If you set it to 0, you will never get an alert.
 alertIfLessThan = 5
 baseurl = "http://localhost:26657/block?height="
-logfile = "/path/to/log/cosmosvalmon.log"
-client = Client("<your-pushover-client-key>", api_token="<your-pushover-api-token>")
+logfile = "cosmosvalmon.log"
 
 # Output to stdout is
 # "block height, proposer ID, number of validators that missed the block"
@@ -82,7 +76,7 @@ try:
             # jq -r '.result.block.last_commit.precommits[].validator_address'
             result = fetch_json(url)
             validator_addresses = (
-                pyjq.all('.result.block.last_commit.precommits[].validator_address', result))
+                pyjq.all('.result.block.last_commit.signatures[].validator_address', result))
 
             # Start out with the assumption that your val did miss the block
             missed = 1
@@ -112,10 +106,11 @@ try:
                 with open(logfile, 'a+') as f:
                     f.write(log + alert + '\n')
 
-            print (str(previousblock) + ', ' + proposer_address + ', ' + str(valmissedcount) + yourvalmissed + alert, flush=True))
+            print (str(previousblock) + ', ' + proposer_address + ', ' + str(valmissedcount) + yourvalmissed + alert, flush=True)
 
             if alert != "":
-                client.send_message(log + alert, title="Cosmos Validator Missed Block")
+                print(log)
+                print(alert)
             
             gc.collect()
 
